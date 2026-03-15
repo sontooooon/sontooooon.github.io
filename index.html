@@ -2,18 +2,20 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>今日のログ</title>
+<title>今日の壁</title>
 
 <style>
 body{
   max-width:700px;
-  margin:60px auto;
+  margin:auto;
   font-family:sans-serif;
   line-height:1.8;
-}
 
-h1{
-  font-size:28px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  height:100vh;
 }
 
 .date{
@@ -31,37 +33,14 @@ h1{
 
 <body>
 
-<h1>今日</h1>
-
 <div class="date">
-<script>
-const d = new Date();
-document.write(
-d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()
-);
-</script>
+2026-03-15-sun
+</div>
+<div class="box">
+　ササッテさんにインタビューを受ける。喋りながら
 </div>
 
-<div class="box">
-<h3>一言</h3>
-虚無。
-</div>
 
-<div class="box">
-<h3>メモ</h3>
-・残業中にマンガ読んだ<br>
-・セミイベント考えた
-</div>
-
-<div class="box">
-<h3>気づき</h3>
-午前はミスしやすい
-</div>
-
-<div class="box">
-<h3>アイデア</h3>
-映画上映会＋感想会
-</div>
 
 </body>
 </html>
