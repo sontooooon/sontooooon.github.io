@@ -3,48 +3,65 @@
 <head>
 <meta charset="utf-8">
 <title>今日のログ</title>
+
 <style>
 body{
-max-width:700px;
-margin:60px auto;
-font-family:sans-serif;
-line-height:1.8;
+  max-width:700px;
+  margin:60px auto;
+  font-family:sans-serif;
+  line-height:1.8;
 }
+
+h1{
+  font-size:28px;
+}
+
+.date{
+  color:#888;
+  margin-bottom:30px;
+}
+
+.box{
+  margin-bottom:30px;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <h1>今日</h1>
 
-<div id="date"></div>
-
-<textarea id="text" rows="10" style="width:100%"></textarea>
-
-<br><br>
-
-<button onclick="save()">保存</button>
-
+<div class="date">
 <script>
-
-const today = new Date().toISOString().slice(0,10)
-document.getElementById("date").innerText = today
-
-function save(){
-
-let text = document.getElementById("text").value
-
-let log = JSON.parse(localStorage.getItem("log") || "{}")
-
-log[today] = text
-
-localStorage.setItem("log",JSON.stringify(log))
-
-alert("保存しました")
-
-}
-
+const d = new Date();
+document.write(
+d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()
+);
 </script>
+</div>
+
+<div class="box">
+<h3>一言</h3>
+虚無。
+</div>
+
+<div class="box">
+<h3>メモ</h3>
+・残業中にマンガ読んだ<br>
+・セミイベント考えた
+</div>
+
+<div class="box">
+<h3>気づき</h3>
+午前はミスしやすい
+</div>
+
+<div class="box">
+<h3>アイデア</h3>
+映画上映会＋感想会
+</div>
 
 </body>
 </html>
