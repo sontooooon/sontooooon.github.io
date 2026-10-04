@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026ログ｜ソントン</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<main>
+
+  <h1>2026ログ　＜ <a href="index.html">TOP</a></h1>
+  <hr>
+  
+  <div class="filters">
+  <button onclick="filterLog('all')">全部</button>
+  <button onclick="filterLog('book')">本</button>
+  <button onclick="filterLog('stage')">舞台</button>
+  <button onclick="filterLog('movie')">映画</button>
+  <button onclick="filterLog('music')">音楽</button>
+  <button onclick="filterLog('other')">ほか</button>
+</div>
+
+<ul id="log">
+
+  <li data-category="book">
+    10/05 谷川嘉浩『人生のレールを外れる衝動のみつけかた』
+  </li>
+  <li data-category="stage">
+    10/04 第七劇場『サンカクと文明』
+  </li>
+  <li data-category="movie">
+    10/03 『並行と垂直』
+  </li>
+  <li data-category="movie">
+    10/03 『開戦前夜』
+  </li>
+  <li data-category="music">
+    10/03 DJ SHADOW「Endtroducing...」
+  </li>
+
+</ul>
+
+  <p>
+    <a href="index.html">← 戻る</a>
+  </p>
+</main>
+<script> function filterLog(category) { const items = document.querySelectorAll('#log li'); items.forEach(function(item) { if (category === 'all' || item.dataset.category === category) { item.style.display = ''; } else { item.style.display = 'none'; } }); } </script>
+</body>
+
+</html>
