@@ -44,6 +44,7 @@ h2 {
 /* 通常のリスト */
 ul {
   list-style-type: "・";
+  margin-bottom: 1.5em;
 }
 
 
@@ -60,3 +61,8 @@ a:hover {
   text-decoration-color: #222;
 }
 
+.new {
+  font-size: 0.75em;
+  margin-left: 0.5em;
+  color: #d00;
+}
