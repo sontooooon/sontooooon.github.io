@@ -14,31 +14,35 @@
   <h1>2026ログ　＜ <a href="index.html">TOP</a></h1>
   <hr>
   
+
   <div class="filters">
-  <button onclick="filterLog('all')">全部</button>
-  <button onclick="filterLog('book')">本</button>
-  <button onclick="filterLog('stage')">舞台</button>
-  <button onclick="filterLog('movie')">映画</button>
-  <button onclick="filterLog('music')">音楽</button>
-  <button onclick="filterLog('other')">ほか</button>
-</div>
+    <button onclick="filterLog('all')">全部 <span id="count-all"></span></button>
+    <button onclick="filterLog('book')">本 <span id="count-book"></span></button>
+    <button onclick="filterLog('stage')">舞台 <span id="count-stage"></span></button>
+    <button onclick="filterLog('movie')">映画 <span id="count-movie"></span></button>
+    <button onclick="filterLog('music')">音楽 <span id="count-music"></span></button>
+    <button onclick="filterLog('other')">ほか <span id="count-other"></span></button>
+  </div>
 
 <ul id="log">
 
   <li data-category="book">
-    10/05 谷川嘉浩『人生のレールを外れる衝動のみつけかた』
+    10/07 [本] 佐藤多佳子『明るい夜に出かけて』
+  </li>
+  <li data-category="book">
+    10/05 [本] 谷川嘉浩『人生のレールを外れる衝動のみつけかた』
   </li>
   <li data-category="stage">
-    10/04 第七劇場『サンカクと文明』
+    10/04 [舞台] 第七劇場『サンカクと文明』
   </li>
   <li data-category="movie">
-    10/03 『並行と垂直』
+    10/03 [映画] 『並行と垂直』
   </li>
   <li data-category="movie">
-    10/03 『開戦前夜』
+    10/03 [映画] 『開戦前夜』
   </li>
   <li data-category="music">
-    10/03 DJ SHADOW「Endtroducing...」
+    10/03 [音楽] DJ SHADOW『Endtroducing...』
   </li>
 
 </ul>
@@ -47,7 +51,57 @@
     <a href="index.html">← 戻る</a>
   </p>
 </main>
-<script> function filterLog(category) { const items = document.querySelectorAll('#log li'); items.forEach(function(item) { if (category === 'all' || item.dataset.category === category) { item.style.display = ''; } else { item.style.display = 'none'; } }); } </script>
+
+<script>
+
+function updateCounts() {
+  const items = document.querySelectorAll('#log li');
+
+  const counts = {
+    all: items.length,
+    book: 0,
+    stage: 0,
+    movie: 0,
+    music: 0,
+    other: 0
+  };
+
+  items.forEach(function(item) {
+    const category = item.dataset.category;
+
+    if (counts[category] !== undefined) {
+      counts[category]++;
+    }
+  });
+
+  document.getElementById('count-all').textContent = counts.all;
+  document.getElementById('count-book').textContent = counts.book;
+  document.getElementById('count-stage').textContent = counts.stage;
+  document.getElementById('count-movie').textContent = counts.movie;
+  document.getElementById('count-music').textContent = counts.music;
+  document.getElementById('count-other').textContent = counts.other;
+}
+
+
+function filterLog(category) {
+  const items = document.querySelectorAll('#log li');
+
+  items.forEach(function(item) {
+
+    if (category === 'all' || item.dataset.category === category) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+
+  });
+}
+
+
+updateCounts();
+
+</script>
+
 </body>
 
 </html>
